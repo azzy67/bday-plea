@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>bday plea</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #fff5f8, #ffeefc);
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            text-align: center;
+            padding-top: 120px;
+            color: #5a4a4a;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            width: 450px;
+            margin: auto;
+            border-radius: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+		h2 {
+            margin-bottom: 25px;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 10px;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .yes {
+            background-color: #ffb6c1;
+            color: white;
+        } 
+	 .no {
+            background-color: #cdb4db;
+            color: white;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+            min-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2 id="text">since you know my bday is coming up</h2>
+
+    <button class="yes" onclick="next()">Continue</button>
+</div>
+
+<script>
+
+let stage = 1;
+
+function next() {
+    const text = document.getElementById("text");
+    const buttonArea = document.querySelector(".card");
+
+    if (stage === 1) {
+        text.innerText = "... so i want sm for it :3";
+        stage = 2;
+    } 
+ else if (stage === 2) {
+        text.innerText = "are you willing to spend 5000 on me???";
+        buttonArea.innerHTML += `
+            <br>
+            <button class="yes" onclick="answer('yes')">Yes</button>
+            <button class="no" onclick="answer('no')">No</button>
+        `;
+        stage = 3;
+    }
+}
+<script>
+    let stage = 1;  // 1 = first question, 2 = second question
+
+    function answer(choice) {
+
+        const question = document.getElementById("question");
+        const message = document.getElementById("message");
+
+        if (stage === 1) {
+
+            if (choice === "yes") {
+                stage = 2;
+                question.innerText = "will you buy me the victoria secret bare vanilla perfume and body lotion???";
+                message.innerText = "";
+            } else {
+                message.innerText = "bro ToT... try again";
+            }
+
+        }
+
+       function answer(choice) {
+    const text = document.getElementById("text");
+
+    if (stage === 3) {
+        if (choice === "yes") {
+            text.innerText = "will you buy me the victoria secret bare vanilla perfume and body lotion???";
+            stage = 4;
+        } else {
+            text.innerText = "bro ToT... try again";
+        }
+    }
+
+    else if (stage === 4) {
+        if (choice === "yes") {
+            text.innerText = "yay thx, i luv you :P";
+        } else {
+            text.innerText = "ToT PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPLLLLLLLLLLLLLLEEEEEAAAAAAAAAAAAAASSSSSSSSSSSSSSSSSSSSSSSSEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE";
+        }
+    }
+}
+
+</script>
+
+</body>
+</html>
